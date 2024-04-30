@@ -21,7 +21,7 @@ function cartReducer(state, action) {
     return { ...state, meals: updatingMeals };
   }
 
-  if ((action.type = 'REMOVE-MEAL')) {
+  if (action.type === 'REMOVE-MEAL') {
     let updatingMeals = [...state.meals];
     let targetIndex = updatingMeals.findIndex((meal) => meal.id === action.id);
 
@@ -36,6 +36,12 @@ function cartReducer(state, action) {
 
     return { ...state, meals: updatingMeals };
   }
+
+  if (action.type === 'CLEAR-MEALS') {
+    return { ...state, meals: [] };
+  }
+
+  return state;
 }
 
 export function CartContextProvider({ children }) {
@@ -49,9 +55,11 @@ export function CartContextProvider({ children }) {
     dispatch({ type: 'REMOVE-MEAL', id });
   };
 
-  const ctx = { meals: state.meals, addToCart, removeItem };
+  const clearMeals = () => {
+    dispatch({ type: 'CLEAR-MEALS' });
+  };
 
-  console.log(ctx);
+  const ctx = { meals: state.meals, addToCart, removeItem, clearMeals };
 
   return <cartContext.Provider value={ctx}>{children}</cartContext.Provider>;
 }

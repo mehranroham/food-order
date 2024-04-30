@@ -1,9 +1,13 @@
 import useHttp from '../hooks/useHttp';
 import Meal from './Meal';
 
+const initConfig = {};
+
 export default function Meals() {
   const { data: loadedMeals, isLoading } = useHttp(
-    'http://localhost:3000/meals'
+    'http://localhost:3000/meals',
+    initConfig,
+    []
   );
 
   if (isLoading) {

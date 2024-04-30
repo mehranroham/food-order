@@ -8,14 +8,14 @@ export default function Modal({ open, children }) {
 
     if (open) {
       modal.showModal();
-    } else {
-      modal.close();
     }
+
+    return () => modal.close();
   }, [open]);
 
   return (
     <dialog
-      className='rounded-lg min-w-[300px] bg-stone-300 px-8 pt-8 pb-4 backdrop:bg-black/70'
+      className='rounded-lg min-w-[300px] bg-stone-500 px-8 pt-8 pb-4 backdrop:bg-black/70'
       ref={dialog}
     >
       {children}
