@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Stencil';
+    src: url(../public/fonts/Stencil/898StencilFaNum.woff2) format('woff2');
+  }
+  @font-face {
+    font-family: 'IRANSans-Medium';
+    src: url(../public/fonts/IranSans-X/IRANSansXFaNum-Medium.woff2)
+      format('woff2');
+  }
+  @font-face {
+    font-family: 'AzarMehr';
+    src: url(../public/fonts/400-AzarMehr-FD-Regular.woff2) format('woff2');
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #000000;
+  /* border-radius: 3px; */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
